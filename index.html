@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Pedro Henrique da Costa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --branco: #FFFFFF;
+            --grafite: #2E2E2E; /* Cor principal de texto e títulos */
+            --azul-escuro: #00072b;   /* Elementos complementares */
+            --cinza-claro: #F5F5F5;
+            --fonte-principal: 'Inter', sans-serif;
+        }
+
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            background-color: var(--branco);
+            color: var(--grafite);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER E NAVEGAÇÃO */
+        header {
+            background-color: var(--azul-escuro);
+            border-bottom: 1px solid #EEE;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color:var(--branco)
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--branco);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* HERO / OBJETIVO */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--grafite);
+            opacity: 0.9;
+        }
+
+        /* SEÇÃO DE PROJETOS */
+        #projetos {
+            padding: 80px 0;
+            background-color: var(--branco);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--branco);
+            border: 1px solid #EAEAEA;
+            border-radius: 4px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+        }
+
+        .card:hover {
+            border-color: var(--grafite);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--escuro);
+            color: var(--branco);
+            font-size: 0.65rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn-projeto {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--branco);
+            background-color: var(--azul-escuro);
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn-projeto:hover {
+            background-color: var(--branco);
+            color: var(--azul-escuro);
+            border: 1px solid var(--azul-escuro);
+            border-color: var(--azul-escuro);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid #EEE;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* MOBILE ADAPTATION */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: none; /* Simplificação mobile */
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .projetos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">Portfólio</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="mailto:pedromanaka@gmail.com">Contato</a></li>3
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <div class="container">
+                <h1>Pedro Henrique da Costa</h1>
+                <p>O objetivo desta página é apresentar meus projetos desenvolvidos. Comunicação direta, clara e sem enrolação.</p>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <div class="container">
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <div class="projetos-grid">
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Dra. Mariana Menegusso</h3>
+                            <p>Website médico especializado com foco em UX e clareza de informações.</p>
+                        </div>
+                        <a href="https://dramarianamenegusso.com/" target="_blank" class="btn-projeto">Ver Website <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Cuidando do Rim</h3>
+                            <p>Plataforma informativa focada em saúde renal e atendimento especializado.</p>
+                        </div>
+                        <a href="https://cuidandodorim.com.br/" target="_blank" class="btn-projeto">Ver Website <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Lima Claro Advogados</h3>
+                            <p>Presença digital institucional para escritório jurídico de alto padrão.</p>
+                        </div>
+                        <a href="https://limaclaroadvogados.com.br/" target="_blank" class="btn-projeto">Ver Website <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Dr. Fabrício Carneiro</h3>
+                            <p>Landing page para cirurgião vascular com foco em conversão e autoridade.</p>
+                        </div>
+                        <a href="https://drfabriciocarneiro.com.br/" target="_blank" class="btn-projeto">Ver Website <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <span class="status-badge">Projeto em Andamento</span>
+                            <h3>Malavasi Advogados</h3>
+                            <p>Desenvolvimento de novo portal jurídico (fase de implementação).</p>
+                        </div>
+                        <a href="https://malavasi.adv.br/home" target="_blank" class="btn-projeto">Acessar Preview <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">Desenvolvido por Pedro Henrique da Costa</p>
+        </div>
+    </footer>
+
+</body>
+</html>
